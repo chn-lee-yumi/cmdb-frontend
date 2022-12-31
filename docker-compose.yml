@@ -1,0 +1,19 @@
+version: '3'
+services:
+  cmdb-receiver:
+    image: registry.cn-guangzhou.aliyuncs.com/yumi-cmdb/cmdb-receiver:beta
+    ports:
+      - "8083:8083"
+    restart: always
+  cmdb-processor:
+    image: registry.cn-guangzhou.aliyuncs.com/yumi-cmdb/cmdb-processor:beta
+    restart: always
+  cmdb-manager:
+    container_name: cmdb-manager-1
+    image: registry.cn-guangzhou.aliyuncs.com/yumi-cmdb/cmdb-manager:beta
+    restart: always
+  cmdb-frontend:
+    image: registry.cn-guangzhou.aliyuncs.com/yumi-cmdb/cmdb-frontend:beta
+    ports:
+      - "8082:80"
+    restart: always
