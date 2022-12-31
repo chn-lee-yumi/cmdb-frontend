@@ -13,8 +13,19 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    #- name: enable debug interface
-    #  uses: chn-lee-yumi/debugger-action@master
+    - name: checkout cmdb-manager
+      uses: actions/checkout@master
+        with:
+          name: chn-lee-yumi/cmdb-manager
+
+    - name: enable debug interface
+      uses: chn-lee-yumi/debugger-action@master
+
+    - name: copy django statics
+      run:|
+        cd cmdb-manager
+        pip3 install -r requirements.txt
+        python3 manage.py collectstatic
         
     - name: Build Docker image
       run: |
