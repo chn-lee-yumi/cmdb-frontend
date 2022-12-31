@@ -17,9 +17,10 @@ jobs:
       uses: actions/checkout@v3
       with:
         repository: chn-lee-yumi/cmdb-manager
+        path: cmdb-manager
 
-    - name: enable debug interface
-      uses: chn-lee-yumi/debugger-action@master
+    #- name: enable debug interface
+    #  uses: chn-lee-yumi/debugger-action@master
 
     - name: copy django statics
       run: |
