@@ -16,7 +16,7 @@ jobs:
     - name: checkout cmdb-manager
       uses: actions/checkout@v3
       with:
-        name: chn-lee-yumi/cmdb-manager
+        repository: chn-lee-yumi/cmdb-manager
 
     - name: enable debug interface
       uses: chn-lee-yumi/debugger-action@master
