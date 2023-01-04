@@ -22,9 +22,20 @@ jobs:
     #- name: enable debug interface
     #  uses: chn-lee-yumi/debugger-action@master
 
-    - name: yarn build
-      run: |
-        yarn build
+    - name: Set Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+
+    - name: Run yarn install
+      uses: borales/actions-yarn@v4
+      with:
+        cmd: install # will run `yarn install` command
+        
+    - name: Build production bundle
+      uses: borales/actions-yarn@v4
+      with:
+        cmd: build:prod # will run `yarn build:prod` command
 
     - name: copy django statics
       run: |
