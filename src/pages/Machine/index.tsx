@@ -185,7 +185,7 @@ const Machine: React.FC = () => {
             await createMachine(values as CMDB.CreateMachineParam);
           }}
         >
-          <Form.Item label="机器IP" name="ip" rules={[{ required: true, message: '请填入机器IP' }]}>
+          <Form.Item label="机器IP" name="main_ip" rules={[{ required: true, message: '请填入机器IP' }]}>
             <Input />
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
