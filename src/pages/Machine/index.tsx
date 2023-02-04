@@ -185,7 +185,11 @@ const Machine: React.FC = () => {
             await createMachine(values as CMDB.CreateMachineParam);
           }}
         >
-          <Form.Item label="机器IP" name="main_ip" rules={[{ required: true, message: '请填入机器IP' }]}>
+          <Form.Item
+            label="机器IP"
+            name="main_ip"
+            rules={[{ required: true, message: '请填入机器IP' }]}
+          >
             <Input />
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
@@ -224,10 +228,12 @@ const Machine: React.FC = () => {
                   <div>
                     <a>{item.main_ip}</a>({item.system_info?.hostname})
                     <Tooltip
-                      title=<div>
-                        <div>最近心跳: {convertDate(item.last_heartbeat)} </div>
-                        <div>Uptime: {convertUptime(item.system_info?.uptime)}</div>
-                      </div>
+                      title={
+                        <div>
+                          <div>最近心跳: {convertDate(item.last_heartbeat)} </div>
+                          <div>Uptime: {convertUptime(item.system_info?.uptime)}</div>
+                        </div>
+                      }
                     >
                       {isMachineOffline(item.last_heartbeat) ? (
                         <Tag color="red">
